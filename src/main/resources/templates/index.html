@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Pet Store</title></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script>
+        var app = angular.module("MyApp",[]);
+        app.controller('navcontroller', function($scope) {
+            $scope.n1 = "PetStore";
+            $scope.n2 = "Home";
+            $scope.n3 = "Signin";
+            $scope.n4 = "Login";
+            $scope.n5 = "Logout";
+        });
+
+        app.controller('maintitle', function($scope){
+            $scope.maintitle = "Check out our pet collections";
+        })
+
+        app.controller('flexbox', function($scope){
+            $scope.dog="Dogs";
+            $scope.cat="Cats";
+            $scope.fish="Fishes";
+            $scope.image1 = [{
+                src1: 'https://th.bing.com/th?id=OIP.Jf0NnGpH2AhNM3BtwZufwwHaJ4&w=216&h=288&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"'
+            }];
+            $scope.image2 = [{
+                src2: 'https://th.bing.com/th/id/OIP.MpmYBjrTrzejcslqxlWcTwHaHV?w=159&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7'
+            }];
+            $scope.image3 = [{
+                src3: 'https://th.bing.com/th/id/OIP.-aLY2lrnF4tc0EpPbq7dMQHaE8?w=284&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7'
+            }];
+        })
+    </script>
+
+    <body ng-app="MyApp">
+        <div ng-controller="navcontroller" id="navbar">
+            <span id="petstore">{{n1}}</span>
+            <span id="home">{{n2}}</span>
+            <span id="signin">{{n3}}</span>
+            <span id="login">{{n4}}</span>
+            <span id="logout">{{n5}}</span>
+        </div>
+        <div ng-controller="maintitle" id="middle">
+            <h1>{{maintitle}}</h1>
+        </div>
+        <div ng-controller="flexbox" id="flex1">
+            <div class="animals">
+                <a href="pet/getdog">
+                    <img ng-src="{{image1[0].src1}}">
+                    <h3>{{dog}}</h3>
+                </a>
+            </div>
+            <div class="animals">
+                <a href="pet/getcat">
+                    <img ng-src="{{image2[0].src2}}">
+                    <h3>{{cat}}</h3>
+                </a>
+            </div>
+            <div class="animals">
+                <a href="pet/getfish">
+                    <img ng-src="{{image3[0].src3}}">
+                    <h3>{{fish}}</h3>
+                </a>
+            </div>
+        </div>
+    </body>
+
+    <style>
+        a{
+            text-decoration: none;
+            color: navy;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(239, 255, 230);
+        }
+        img{
+            width: 250px;
+            height: 300px;
+        }
+        img :hover{
+            color: rgb(134, 255, 215);
+        }
+        .animals{
+            padding: 1%;
+            margin-left: 10%;
+            margin-top: 3%;
+            color: rgb(41, 41, 158);
+            background-color: rgb(205, 247, 233);
+            padding-bottom: 1%;
+            text-align: center;
+        }
+        #flex1{
+            display: flex;
+            flex-direction: row;
+        }
+        #middle{
+            margin-top: 5%;
+            color: navy;
+            text-align: center;
+        }
+        #petstore{
+            margin-left: 5%;
+        }
+        #home{
+            margin-left: 60%;
+        }
+        #signin{
+            margin-left: 5%;
+        }
+        #login{
+            margin-left: 5%;
+        }
+        #logout{
+            margin-left: 5%;
+        }
+        #navbar{
+            width: 100%;
+            height: 100%;
+            border: 1px aquamarine;
+            background-color: aquamarine;
+            margin-top: -0.5%;
+            margin-left: -0.6%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            padding-right: 1.1%;
+            font-weight: bold;
+            color: navy;
+        }
+    </style>
+    
+</html>
